@@ -36,3 +36,7 @@
 
 # 兜底：忽略第三方依赖的混淆警告，保证 R8 构建通过（不影响混淆强度）
 -ignorewarnings
+
+# 使用非 ASCII（Unicode）混淆字典，将类名/方法名混淆为汉字等字符，进一步增加反编译阅读难度（合规内）
+-obfuscationdictionary ../dict.txt
+-classobfuscationdictionary ../dict.txt
