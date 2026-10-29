@@ -103,8 +103,11 @@ class RedPacketAccessibilityService : AccessibilityService() {
     }
 
     /** 用文本 + 屏幕边界生成稳定 key（同一红包在列表位置不变时 key 稳定） */
-    private fun keyOf(node: AccessibilityNodeInfo): String =
-        (node.text?.toString() ?: "") + "|" + node.boundsInScreen.toString()
+    private fun keyOf(node: AccessibilityNodeInfo): String {
+        val rect = android.graphics.Rect()
+        node.getBoundsInScreen(rect)
+        return (node.text?.toString() ?: "") + "|" + rect.toString()
+    }
 
     private fun isProcessed(key: String): Boolean {
         val now = System.currentTimeMillis()
