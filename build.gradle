@@ -1,0 +1,7 @@
+// 顶层构建文件。插件版本在 settings.gradle 的 pluginManagement 中声明。
+// 注意：不要在这里写 allprojects { repositories {...} }，会与
+// settings.gradle 的 repositoriesMode.FAIL_ON_PROJECT_REPOS 冲突导致构建失败。
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
+}

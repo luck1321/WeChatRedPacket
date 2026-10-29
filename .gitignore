@@ -1,0 +1,15 @@
+# Android / Gradle 构建产物
+*.iml
+.gradle/
+build/
+/*/build/
+local.properties
+captures/
+.idea/
+.DS_Store
+*.apk
+*.aab
+
+# 密钥/本地敏感配置
+signing.properties
+keystore/

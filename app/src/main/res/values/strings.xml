@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">微信红包助手</string>
+    <string name="app_hint">开启下方无障碍服务后，让微信停留在目标群聊即可自动抢红包。\n仅用于 Android 无障碍技术学习，违反微信协议可能导致封号，后果自负。</string>
+    <string name="open_settings">前往无障碍设置</string>
+    <string name="service_desc">自动识别并抢微信群红包（Android 无障碍服务演示）</string>
+</resources>
