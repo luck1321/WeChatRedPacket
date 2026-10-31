@@ -49,12 +49,15 @@ class MainActivity : Activity() {
         tvStatus.setTextColor(if (enabled) 0xFF388E3C.toInt() else 0xFFD32F2F.toInt())
     }
 
-    /** 检查本无障碍服务是否已在系统设置中开启 */
+    /** 检查本无障碍服务是否已在系统设置中开启（精确匹配本应用组件，避免误判同名服务） */
     private fun isServiceEnabled(): Boolean {
         val enabled = Settings.Secure.getString(
             contentResolver,
             Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
         ) ?: return false
-        return enabled.contains("RedPacketAccessibilityService", ignoreCase = true)
+        val component = "com.example.redpacket/.RedPacketAccessibilityService"
+        return enabled.split(":").any {
+            it.equals(component, ignoreCase = true) || it.contains("com.example.redpacket")
+        }
     }
 }
